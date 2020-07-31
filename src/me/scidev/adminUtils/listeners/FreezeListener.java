@@ -1,4 +1,4 @@
-package me.scidev.adminUtils.commands;
+package me.scidev.adminUtils.listeners;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 
 import com.destroystokyo.paper.event.player.PlayerJumpEvent;
 
-public class Freezer implements Listener {
+public class FreezeListener implements Listener {
 	
 	private static List<Player> frozenPlayers = new ArrayList<Player>();
 

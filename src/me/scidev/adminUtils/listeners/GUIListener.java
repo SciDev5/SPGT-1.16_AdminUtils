@@ -1,4 +1,4 @@
-package me.scidev.adminUtils.itemGUI;
+package me.scidev.adminUtils.listeners;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,9 @@ import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 
-public class GUIEventHandler implements Listener {
+import me.scidev.adminUtils.itemGUI.BaseGUI;
+
+public class GUIListener implements Listener {
 	private List<BaseGUI> guis = new ArrayList<>();
 	
 	public void registerGUI(BaseGUI gui) {

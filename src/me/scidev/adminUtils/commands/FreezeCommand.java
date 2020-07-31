@@ -10,6 +10,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 import me.scidev.adminUtils.AdminUtils;
+import me.scidev.adminUtils.listeners.FreezeListener;
 import me.scidev.adminUtils.text.Localizer;
 
 public class FreezeCommand implements CommandExecutor, TabCompleter {
@@ -27,9 +28,10 @@ public class FreezeCommand implements CommandExecutor, TabCompleter {
 			return true;
 		}
 		
-		if (Freezer.addFrozenPlayer(target))
+		if (FreezeListener.addFrozenPlayer(target)) {
+			target.sendMessage(Localizer.getLocalizedText("punishment.freeze"));
 			sender.sendMessage(Localizer.getLocalizedText("commands.freeze.successFreeze", new String[] {"player"}, new String[] {target.getName()}));
-		else 
+		} else 
 			sender.sendMessage(Localizer.getLocalizedText("commands.freeze.noChange"));
 			
 		return true;

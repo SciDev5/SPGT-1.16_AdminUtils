@@ -12,7 +12,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import me.scidev.adminUtils.AdminUtils;
-import me.scidev.adminUtils.commands.Freezer;
+import me.scidev.adminUtils.listeners.FreezeListener;
 import me.scidev.adminUtils.text.Localizer;
 
 public class InvSeeGUI extends BaseGUI {
@@ -48,7 +48,7 @@ public class InvSeeGUI extends BaseGUI {
 				break;
 			case 43:
 				e.setCancelled(true);
-				if (Freezer.addFrozenPlayer(target))
+				if (FreezeListener.addFrozenPlayer(target))
 					player.sendMessage(Localizer.getLocalizedText("commands.freeze.successFreeze", new String[] {"player"}, new String[] {target.getName()}));
 				else 
 					player.sendMessage(Localizer.getLocalizedText("commands.freeze.noChange"));

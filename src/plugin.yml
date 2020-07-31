@@ -17,3 +17,27 @@ commands:
       description: Unfreeze a frozen player.
       permission: adminutils.commands.unfreeze.use
       usage: "/<command> <player>"
+   ban:
+      description: Ban a player from the server.
+      permission: adminutils.commands.ban.use
+      usage: "/<command> <player> [duration] [reason... ]"
+   ban-ip:
+      description: Ban a player from the server by their ip.
+      permission: adminutils.commands.ban.use
+      usage: "/<command> <player> [duration] [reason... ]"
+   kick:
+      description: Kick a player from the server.
+      permission: adminutils.commands.kick.use
+      usage: "/<command> <player> [reason... ]"
+   pardon:
+      description: Unban a player from the server.
+      permission: adminutils.commands.pardon.use
+      usage: "/<command> <player>"
+   pardon-ip:
+      description: Un ip-ban a player from the server.
+      permission: adminutils.commands.pardon.use
+      usage: "/<command> <ip>"
+   warn:
+      description: Warn a player for doing something wrong.
+      permission: adminutils.commands.warn.use
+      usage: "/<command> <player> <reason... >"

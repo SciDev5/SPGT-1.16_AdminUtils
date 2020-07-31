@@ -8,11 +8,18 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.scidev.adminUtils.commands.BanCommand;
+import me.scidev.adminUtils.commands.BanIPCommand;
 import me.scidev.adminUtils.commands.FreezeCommand;
-import me.scidev.adminUtils.commands.Freezer;
 import me.scidev.adminUtils.commands.InvSeeCommand;
+import me.scidev.adminUtils.commands.KickCommand;
+import me.scidev.adminUtils.commands.PardonCommand;
+import me.scidev.adminUtils.commands.PardonIPCommand;
 import me.scidev.adminUtils.commands.UnfreezeCommand;
-import me.scidev.adminUtils.itemGUI.GUIEventHandler;
+import me.scidev.adminUtils.commands.WarnCommand;
+import me.scidev.adminUtils.listeners.FreezeListener;
+import me.scidev.adminUtils.listeners.GUIListener;
+import me.scidev.adminUtils.listeners.JoinListener;
 import me.scidev.adminUtils.text.Colorizer;
 import me.scidev.adminUtils.text.Localizer;
 
@@ -20,7 +27,7 @@ public class AdminUtils extends JavaPlugin {
 	public static AdminUtils instance = null;
 	public static Logger LOGGER = LogManager.getLogger("AdminUtils"); 
 	
-	public GUIEventHandler guiEventHandler;
+	public GUIListener guiEventHandler;
 	
 	@Override
 	public void onEnable() {
@@ -60,9 +67,10 @@ public class AdminUtils extends JavaPlugin {
 
 
 	private void registerEvents() {
-		this.guiEventHandler = new GUIEventHandler();
+		this.guiEventHandler = new GUIListener();
 		getServer().getPluginManager().registerEvents(this.guiEventHandler, this);
-		getServer().getPluginManager().registerEvents(new Freezer(), this);
+		getServer().getPluginManager().registerEvents(new FreezeListener(), this);
+		getServer().getPluginManager().registerEvents(new JoinListener(), this);
 	}
 
 	public void registerCommands() {
@@ -70,6 +78,12 @@ public class AdminUtils extends JavaPlugin {
 		registerCommand("invsee", new InvSeeCommand(), permissionMessage);
 		registerCommand("freeze", new FreezeCommand(), permissionMessage);
 		registerCommand("unfreeze", new UnfreezeCommand(), permissionMessage);
+		registerCommand("ban", new BanCommand(), permissionMessage);
+		registerCommand("ban-ip", new BanIPCommand(), permissionMessage);
+		registerCommand("kick", new KickCommand(), permissionMessage);
+		registerCommand("pardon", new PardonCommand(), permissionMessage);
+		registerCommand("pardon-ip", new PardonIPCommand(), permissionMessage);
+		registerCommand("warn", new WarnCommand(), permissionMessage);
 	}
 	
 	public void registerCommand(String name, CommandExecutor executor, String permissionMessage) {
