@@ -1,0 +1,23 @@
+i10n:
+   substitution:
+      beginning: "<:"
+      ending: ":>"
+   style:
+      hexcolor: "&x"
+      stylechar: "&"
+   noPermission: "&cYou do not have permission to do that."
+   commands:
+      invsee: 
+         error: 
+            syntax: "&8[&9AdminUtils&8:&cError&8] &cInvalid syntax: try /<:command:> <player name>"
+            playerNotFound: "&8[&9AdminUtils&8:&cError&8] &cPlayer <:player:> not found!"
+            isConsole: "&8[&9AdminUtils&8:&cError&8] &cCommand can only be executed by a player."
+         success: "&8[&9AdminUtils&8:&aSuccess&8] &fViewing inventory of <:player:>."
+         inventoryName: "<:player:>'s inventory."
+      freeze: 
+         error: 
+            syntax: "&8[&9AdminUtils&8:&cError&8] &cInvalid syntax: try /<:command:> <player name>"
+            playerNotFound: "&8[&9AdminUtils&8:&cError&8] &cPlayer <:player:> not found!"
+         noChange: "&8[&6!&8] &6Nothing changed."
+         successFreeze: "&8[&9AdminUtils&8:&aSuccess&8] &fFroze player <:player:>."
+         successUnfreeze: "&8[&9AdminUtils&8:&aSuccess&8] &fUnfroze player <:player:>."

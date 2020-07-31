@@ -1,0 +1,19 @@
+name: AdminUtils
+version: 1.0.0
+author: SciDev
+api-version: 1.16
+main: me.scidev.adminUtils.AdminUtils
+commands:
+   invsee:
+      description: See another players inventory.
+      permission: adminutils.commands.invsee.use
+      aliases: ["inv"]
+      usage: "/<command> <player>"
+   freeze:
+      description: Freeze a player in place.
+      permission: adminutils.commands.freeze.use
+      usage: "/<command> <player>"
+   unfreeze:
+      description: Unfreeze a frozen player.
+      permission: adminutils.commands.unfreeze.use
+      usage: "/<command> <player>"
