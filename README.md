@@ -18,6 +18,8 @@ Freeze a player in place if they are cheating.
 Ban a player from your server if they are breaking the rules.
 Duration is either "forever" or a whole number with a unit of time (dy,hr,min,s).
 
+Example: `/ban Player123 3dy Cheating lol` will ban "Player123" for 3 days for "Cheating lol"
+
 #### `/pardon <player>` and `/pardon-ip <player>`
 
 Unban a player.
