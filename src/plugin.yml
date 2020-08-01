@@ -41,3 +41,31 @@ commands:
       description: Warn a player for doing something wrong.
       permission: adminutils.commands.warn.use
       usage: "/<command> <player> <reason... >"
+   staffchat:
+      description: Talk to other staff members of your server.
+      permission: adminutils.commands.staffchat.use
+      usage: "\n /<command> [true/false]\n /<command> <message>"
+      aliases: ["sc"]
+   mute:
+      description: Mute a player on the server.
+      permission: adminutils.commands.mute.use
+      usage: "/<command> <player> [duration] [reason... ]"
+   mute-ip:
+      description: Mute a player on the server by their ip.
+      permission: adminutils.commands.mute.use
+      usage: "/<command> <player> [duration] [reason... ]"
+   unmute:
+      description: Unmute a player on the server.
+      permission: adminutils.commands.unmute.use
+      usage: "/<command> <player>"
+   unmute-ip:
+      description: Un ip-mute a player on the server.
+      permission: adminutils.commands.unmute.use
+      usage: "/<command> <ip>"
+   chat:
+      description: Toggle and clear chat.
+      permission: adminutils.commands.chat.use
+      usage: "/<command> <true/false/clear>"
+permissions:
+   adminutils.chat.talkWhenChatDisabled:
+      default: op

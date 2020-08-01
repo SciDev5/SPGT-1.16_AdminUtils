@@ -1,3 +1,14 @@
+punishmentBroadcast:
+   ban: true
+   unban: true
+   kick: true
+   warn: true
+   mute: true
+   unmute: true
+
+staffCanTalkWhenChatMuted: true
+
+
 i10n:
    substitution:
       beginning: "<:"
@@ -53,6 +64,45 @@ i10n:
             playerNotFound: "&8[&6AdminUtils&8:&cError&8] &cPlayer <:player:> not found or is not online!"
          success: "&8[&bAdminUtils&8:&aSuccess&8]&f Warned player &c<:player:>&f for &c<:reason:>&f!"
          broadcastMessage: "&8[&6AdminUtils&8]&f &b<:admin:>&f warned &c<:player:>&f for &c<:reason:>&f!"
+      staffchat:
+         error:
+            isConsole: "&8[&6AdminUtils&8:&cError&8] &cConsole cannot disable staff chat."
+            noChange: "&8[&6AdminUtils&8:&cError&8] &cNothing changed."
+         successEnable: "&8[&bAdminUtils&8:&aSuccess&8]&f Enabled staff chat."
+         successDisable: "&8[&bAdminUtils&8:&aSuccess&8]&f Disabled staff chat."
+      mute:
+         error:
+            syntax: "&8[&6AdminUtils&8:&cError&8] &cInvalid syntax: try /<:command:> <player name> [duration] [reason... ]"
+            playerNotFound: "&8[&6AdminUtils&8:&cError&8] &cPlayer <:player:> not found!"
+            alreadyBanned: "&8[&6AdminUtils&8:&cError&8] &cPlayer <:player:> is already muted!"
+            banNewbie: "&8[&6AdminUtils&8:&cError&8] &cYou cannot mute a player who has never joined before."
+            ipMuteOffline: "&8[&6AdminUtils&8:&cError&8] &cPlayer <:player:> not found or is offline!"
+         success: "&8[&bAdminUtils&8:&aSuccess&8] &fMuted player &c<:player:>&f for <:duration:> for &c<:reason:>&f!"
+         successIP: "&8[&bAdminUtils&8:&aSuccess&8] &fIP muted player &c<:player:>&f for <:duration:> for &c<:reason:>&f!"
+         successForever: "&8[&bAdminUtils&8:&aSuccess&8] &fMuted player &c<:player:>&f forever for &c<:reason:>&f!"
+         successIPForever: "&8[&bAdminUtils&8:&aSuccess&8] &fIP muted player &c<:player:>&f forever for &c<:reason:>&f!"
+         broadcastMessage: "&8[&6AdminUtils&8]&f &b<:admin:>&f muted &c<:player:>&f for <:duration:> for &c<:reason:>&f!"
+         broadcastMessageForever: "&8[&6AdminUtils&8]&f &b<:admin:>&f muted &c<:player:>&f forever for &c<:reason:>&f!"
+      unmute:
+         error: 
+            syntax: "&8[&6AdminUtils&8:&cError&8] &cInvalid syntax: try /<:command:> <player name>"
+            playerNotFound: "&8[&6AdminUtils&8:&cError&8] &cPlayer <:player:> not found or is not muted!"
+         success: "&8[&bAdminUtils&8:&aSuccess&8]&f Unmuted &c<:player:>&f!"
+         successIP: "&8[&bAdminUtils&8:&aSuccess&8]&f Un ip-muted &c<:player:>&f!"
+         broadcastMessage: "&8[&6AdminUtils&8]&f &b<:admin:>&f unmuted &c<:player:>&f!"
+      chat:
+         error:
+            syntax: "&8[&6AdminUtils&8:&cError&8] &cInvalid syntax: try /<:command:> <true/false/clear>"
+            noChange: "&8[&6AdminUtils&8:&cError&8] &cNothing changed."
+         successOn: "&8[&bAdminUtils&8:&aSuccess&8]&f Toggled chat &aon&f."
+         successOff: "&8[&bAdminUtils&8:&aSuccess&8]&f Toggled chat &coff&f."
+         successClear: "&8[&bAdminUtils&8:&aSuccess&8]&f Cleared chat."
+         broadcastClear: "&8[&6!&8]&f Chat cleared by &9<:admin:>&f."
+         broadcastOn: "&8[&6!&8]&f Chat &aenabled&f by &9<:admin:>&f."
+         broadcastOff: "&8[&6!&8]&f Chat &cdisabled&f by &9<:admin:>&f."
+         trySpeakGlobalMute: "&8[&6!&8]&f Chat is disabled."
+   chatFormat: # Use String.format syntax here (eg. "<%s> %s" is default minecraft, first %s is player, second is message). 
+      staffChat: "&8[&aStaffChat&8:&b%s&f&8]&f %s"
    punishment:
       freeze: "&8[&6!&8]&b You have been frozen by an admin, please follow their instructions."
       unfreeze: "&8[&6!&8]&b You have been unfrozen."
@@ -60,8 +110,7 @@ i10n:
       banPermanent: "&cYou are permanently banned from the server!\nReason: &l<:reason:>&f"
       kick: "&cYou have been kicked from the server!\nReason: <:reason:>"
       warn: "&8[&6!&8]&6 You have been warned for &l<:reason:>&f!"
-punishmentBroadcast:
-   ban: true
-   unban: true
-   kick: true
-   warn: true
+      muted: "&8[&6!&8]&c You have been muted for <:duration:> for &l<:reason:>&f!"
+      mutedPermanent: "&8[&6!&8]&c You have been muted forever for &l<:reason:>&f!"
+      mutedTrySpeak: "&8[&6!&8]&c You are muted and cannot speak!"
+      unmuted: "&8[&6!&8]&6 You have been unmuted!"

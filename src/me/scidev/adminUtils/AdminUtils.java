@@ -10,16 +10,24 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.scidev.adminUtils.commands.BanCommand;
 import me.scidev.adminUtils.commands.BanIPCommand;
+import me.scidev.adminUtils.commands.ChatCommand;
 import me.scidev.adminUtils.commands.FreezeCommand;
 import me.scidev.adminUtils.commands.InvSeeCommand;
 import me.scidev.adminUtils.commands.KickCommand;
+import me.scidev.adminUtils.commands.MuteCommand;
+import me.scidev.adminUtils.commands.MuteIPCommand;
 import me.scidev.adminUtils.commands.PardonCommand;
 import me.scidev.adminUtils.commands.PardonIPCommand;
+import me.scidev.adminUtils.commands.StaffChatCommand;
 import me.scidev.adminUtils.commands.UnfreezeCommand;
+import me.scidev.adminUtils.commands.UnmuteCommand;
+import me.scidev.adminUtils.commands.UnmuteIPCommand;
 import me.scidev.adminUtils.commands.WarnCommand;
+import me.scidev.adminUtils.listeners.ChatListener;
 import me.scidev.adminUtils.listeners.FreezeListener;
 import me.scidev.adminUtils.listeners.GUIListener;
 import me.scidev.adminUtils.listeners.JoinListener;
+import me.scidev.adminUtils.punishment.Mutes;
 import me.scidev.adminUtils.text.Colorizer;
 import me.scidev.adminUtils.text.Localizer;
 
@@ -38,6 +46,13 @@ public class AdminUtils extends JavaPlugin {
 		
 		registerEvents();
 		registerCommands();
+		
+		Mutes.load();
+	}
+	
+	@Override
+	public void onDisable() {
+		Mutes.save();
 	}
 	
 	private void initTextUtils() {
@@ -71,6 +86,7 @@ public class AdminUtils extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(this.guiEventHandler, this);
 		getServer().getPluginManager().registerEvents(new FreezeListener(), this);
 		getServer().getPluginManager().registerEvents(new JoinListener(), this);
+		getServer().getPluginManager().registerEvents(new ChatListener(), this);
 	}
 
 	public void registerCommands() {
@@ -84,6 +100,12 @@ public class AdminUtils extends JavaPlugin {
 		registerCommand("pardon", new PardonCommand(), permissionMessage);
 		registerCommand("pardon-ip", new PardonIPCommand(), permissionMessage);
 		registerCommand("warn", new WarnCommand(), permissionMessage);
+		registerCommand("staffchat", new StaffChatCommand(), permissionMessage);
+		registerCommand("mute", new MuteCommand(), permissionMessage);
+		registerCommand("mute-ip", new MuteIPCommand(),permissionMessage);
+		registerCommand("unmute", new UnmuteCommand(), permissionMessage);
+		registerCommand("unmute-ip", new UnmuteIPCommand(),permissionMessage);
+		registerCommand("chat", new ChatCommand(),permissionMessage);
 	}
 	
 	public void registerCommand(String name, CommandExecutor executor, String permissionMessage) {
